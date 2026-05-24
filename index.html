@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NATHELF — Pharmaceutical Future</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:rgba(0,255,140,0.12);
+      filter:blur(120px);
+      top:-150px;
+      left:-120px;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:rgba(255,0,140,0.12);
+      filter:blur(120px);
+      bottom:-150px;
+      right:-120px;
+      z-index:-1;
+    }
+
+    header{
+      width:100%;
+      padding:25px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(20px);
+      background:rgba(255,255,255,0.75);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+
+    .logo img{
+      height:60px;
+      object-fit:contain;
+    }
+
+    nav{
+      display:flex;
+      gap:30px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#111;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#00c97b;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:60px;
+      padding:0 8%;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:5rem;
+      line-height:1.1;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#00d47e,#ff4fcf);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-text p{
+      color:rgba(0,0,0,0.65);
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:40px;
+      font-size:1.08rem;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 34px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.35s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,#00d47e,#ff4fcf);
+      color:white;
+      box-shadow:0 0 25px rgba(0,212,126,0.3);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 40px rgba(255,79,207,0.35);
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(0,0,0,0.1);
+      color:#111;
+    }
+
+    .btn-secondary:hover{
+      border-color:#00d47e;
+      color:#00d47e;
+    }
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:520px;
+      border-radius:40px;
+      box-shadow:0 0 60px rgba(0,212,126,0.15);
+    }
+
+    .section{
+      padding:110px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:rgba(0,0,0,0.65);
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .catalog-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .product-card{
+      background:rgba(255,255,255,0.8);
+      border:1px solid rgba(0,0,0,0.06);
+      border-radius:30px;
+      padding:25px;
+      text-align:center;
+      transition:0.35s;
+      backdrop-filter:blur(20px);
+    }
+
+    .product-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 45px rgba(0,212,126,0.12);
+    }
+
+    .product-card img{
+      width:100%;
+      max-width:220px;
+      height:220px;
+      object-fit:contain;
+      margin-bottom:20px;
+    }
+
+    .product-card h3{
+      margin-bottom:12px;
+      font-size:1.35rem;
+    }
+
+    .product-card p{
+      color:rgba(0,0,0,0.65);
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    .product-btn{
+      display:inline-block;
+      padding:12px 26px;
+      border-radius:40px;
+      text-decoration:none;
+      background:linear-gradient(90deg,#00d47e,#ff4fcf);
+      color:white;
+      font-weight:700;
+    }
+
+    .about-box{
+      background:rgba(255,255,255,0.8);
+      border:1px solid rgba(0,0,0,0.06);
+      border-radius:40px;
+      padding:70px;
+      text-align:center;
+      backdrop-filter:blur(20px);
+    }
+
+    .about-box p{
+      max-width:850px;
+      margin:auto;
+      color:rgba(0,0,0,0.65);
+      line-height:1.9;
+      font-size:1.05rem;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      border-top:1px solid rgba(0,0,0,0.06);
+      color:rgba(0,0,0,0.5);
+    }
+
+    @media(max-width:1000px){
+
+      .hero{
+        flex-direction:column;
+        padding-top:60px;
+        text-align:center;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:3.5rem;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      nav{
+        display:none;
+      }
+
+      .hero-text h1{
+        font-size:2.7rem;
+      }
+
+      .section-title h2{
+        font-size:2.2rem;
+      }
+
+      .about-box{
+        padding:40px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+
+    <div class="logo">
+      <!-- ВСТАВЬ СВОЙ ЛОГОТИП -->
+      <img src="logo.png" alt="NATHELF Logo">
+    </div>
+
+    <nav>
+      <a href="#about">О компании</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        Фармацевтика <br>
+        <span class="gradient-text">Нового Поколения</span>
+      </h1>
+
+      <p>
+        NATHELF — современная фармацевтическая компания, объединяющая инновационные технологии, научные разработки и высокое качество медицинской продукции.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#catalog" class="btn btn-primary">Каталог</a>
+        <a href="#about" class="btn btn-secondary">Подробнее</a>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <!-- ВСТАВЬ ГЛАВНОЕ ИЗОБРАЖЕНИЕ -->
+      <img src="hero-image.png" alt="Pharmaceutical Product">
+    </div>
+
+  </section>
+
+  <section class="section" id="catalog">
+
+    <div class="section-title">
+      <h2><span class="gradient-text">Каталог Продукции</span></h2>
+      <p>
+        Современные фармацевтические продукты с инновационным подходом к здоровью и качеству.
+      </p>
+    </div>
+
+    <div class="catalog-grid">
+
+      <div class="product-card">
+        <img src="product1.png" alt="Product">
+        <h3>NATHELF Vita+</h3>
+        <p>
+          Витаминный комплекс для поддержки иммунитета и ежедневной энергии.
+        </p>
+        <a href="#" class="product-btn">Подробнее</a>
+      </div>
+
+      <div class="product-card">
+        <img src="product2.png" alt="Product">
+        <h3>NATHELF BioCare</h3>
+        <p>
+          Инновационный фармацевтический продукт нового поколения.
+        </p>
+        <a href="#" class="product-btn">Подробнее</a>
+      </div>
+
+      <div class="product-card">
+        <img src="product3.png" alt="Product">
+        <h3>NATHELF GreenMed</h3>
+        <p>
+          Современное решение для здорового образа жизни и поддержки организма.
+        </p>
+        <a href="#" class="product-btn">Подробнее</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="about">
+
+    <div class="about-box">
+
+      <div class="section-title">
+        <h2><span class="gradient-text">О Компании NATHELF</span></h2>
+      </div>
+
+      <p>
+        Мы создаём инновационные фармацевтические решения, ориентированные на качество, безопасность и современные технологии. NATHELF стремится объединить научные исследования и будущее медицины для улучшения качества жизни людей.
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer id="contact">
+    © 2026 NATHELF — Pharmaceutical Future
+  </footer>
+
+</body>
+</html>
