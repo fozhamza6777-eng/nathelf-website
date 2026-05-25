@@ -146,6 +146,7 @@
     }
 
     header{
+      transition:0.4s ease;
       width:100%;
       padding:25px 8%;
       display:flex;
@@ -201,6 +202,7 @@
     }
 
     .gradient-text{
+      filter:drop-shadow(0 0 12px rgba(255,79,207,0.25));
       background:linear-gradient(90deg,#00d47e,#ff4fcf);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
@@ -303,6 +305,7 @@
     .product-card:hover{
       transform:translateY(-10px);
       box-shadow:0 0 45px rgba(0,212,126,0.12);
+      backdrop-filter:blur(20px);
     }
 
     .product-card img{
