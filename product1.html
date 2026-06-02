@@ -11,70 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* LIGHTBOX */
 
-.lightbox{
-
-  display:none;
-
-  position:fixed;
-
-  z-index:99999;
-
-  left:0;
-  top:0;
-
-  width:100%;
-  height:100%;
-
-  background:rgba(0,0,0,.9);
-
-  justify-content:center;
-  align-items:center;
-
-  padding:20px;
-
-}
-
-.lightbox img{
-
-  max-width:90%;
-  max-height:90%;
-
-  border-radius:20px;
-
-  animation:zoomIn .3s ease;
-
-}
-
-.close-lightbox{
-
-  position:absolute;
-
-  top:20px;
-  right:35px;
-
-  color:white;
-
-  font-size:50px;
-
-  cursor:pointer;
-
-}
-
-@keyframes zoomIn{
-
-  from{
-    transform:scale(.7);
-    opacity:0;
-  }
-
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
-
-}
 </style>
   <div id="lightbox" class="lightbox">
     <span class="close-lightbox">&times;</span>
@@ -104,56 +41,7 @@ lightbox.addEventListener('click', (e) => {
     }
 });
 </script>
-  <!-- LIGHTBOX -->
-
-<div id="lightbox" class="lightbox">
-
-  <span class="close-lightbox">&times;</span>
-
-  <img id="lightbox-img" src="" alt="">
-
-</div>
-  <script>
-
-const galleryImages =
-document.querySelectorAll('.gallery img');
-
-const lightbox =
-document.getElementById('lightbox');
-
-const lightboxImg =
-document.getElementById('lightbox-img');
-
-const closeBtn =
-document.querySelector('.close-lightbox');
-
-galleryImages.forEach(img=>{
-
-  img.addEventListener('click',()=>{
-
-    lightbox.style.display='flex';
-
-    lightboxImg.src=img.src;
-
-  });
-
-});
-
-closeBtn.addEventListener('click',()=>{
-
-  lightbox.style.display='none';
-
-});
-
-lightbox.addEventListener('click',(e)=>{
-
-  if(e.target===lightbox){
-
-    lightbox.style.display='none';
-
-  }
-
-});
+  
 
 </script>
 <body>
