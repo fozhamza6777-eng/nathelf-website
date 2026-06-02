@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgnaBella | NATHELF</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#fff;
+color:#111;
+overflow-x:hidden;
+}
+
+header{
+position:sticky;
+top:0;
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(20px);
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(0,0,0,.05);
+z-index:1000;
+}
+
+.logo img{
+height:60px;
+}
+
+.back-btn{
+text-decoration:none;
+padding:12px 24px;
+border-radius:40px;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+color:white;
+font-weight:700;
+}
+
+.hero{
+padding:80px 8%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.product-image img{
+width:100%;
+max-width:500px;
+display:block;
+margin:auto;
+}
+
+.product-info h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.gradient{
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.product-info p{
+line-height:1.9;
+color:#555;
+}
+
+.section{
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:50px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+.box{
+background:#fafafa;
+padding:35px;
+border-radius:25px;
+margin-bottom:25px;
+}
+
+.box h3{
+margin-bottom:15px;
+}
+
+.box p{
+line-height:1.8;
+color:#555;
+}
+
+.contact{
+padding:80px 8%;
+text-align:center;
+}
+
+.contact h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.contact p{
+margin:10px 0;
+}
+
+.footer-btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+border-radius:40px;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.product-info h1{
+font-size:3rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo.png" alt="NATHELF">
+</div>
+
+<a href="index.html" class="back-btn">
+← Назад в каталог
+</a>
+
+</header>
+
+<section class="hero">
+
+<div class="product-image">
+<img src="agnabella.png" alt="AgnaBella">
+</div>
+
+<div class="product-info">
+
+<h1 class="gradient">
+AgnaBella
+</h1>
+
+<p>
+Здесь будет размещено краткое описание препарата AgnaBella.
+Вы можете заменить этот текст на официальный текст производителя.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title gradient">
+Галерея препарата
+</h2>
+
+<div class="gallery">
+
+<img src="agnabella-1.jpg" alt="">
+<img src="agnabella-2.jpg" alt="">
+<img src="agnabella-3.jpg" alt="">
+<img src="agnabella-4.jpg" alt="">
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="box">
+<h3>Описание</h3>
+<p>Здесь размещается подробное описание препарата.</p>
+</div>
+
+<div class="box">
+<h3>Показания к применению</h3>
+<p>Информация будет добавлена позже.</p>
+</div>
+
+<div class="box">
+<h3>Состав</h3>
+<p>Информация будет добавлена позже.</p>
+</div>
+
+<div class="box">
+<h3>Инструкция</h3>
+<p>Информация будет добавлена позже.</p>
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2 class="gradient">
+Контакты
+</h2>
+
+<p>📞 +998 95 155 56 88</p>
+<p>✉ info@nathelf.com</p>
+<p>📍 Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</p>
+
+<a href="index.html" class="footer-btn">
+Вернуться в каталог
+</a>
+
+</section>
+
+</body>
+</html>
