@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NATHELF | Pharmaceutical Future</title>
+
+<meta name="description" content="Современная фармацевтическая компания нового поколения">
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+color:#111;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(20px);
+z-index:1000;
+border-bottom:1px solid rgba(0,0,0,.05);
+}
+
+.logo img{
+height:60px;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:#00ff88;
+filter:blur(150px);
+opacity:.15;
+left:-100px;
+top:-100px;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:#ff4fd1;
+filter:blur(150px);
+opacity:.15;
+right:-100px;
+bottom:-100px;
+}
+
+.hero-content{
+max-width:900px;
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:5rem;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.gradient{
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:1.8;
+color:#555;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:16px 34px;
+border-radius:50px;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+color:#fff;
+text-decoration:none;
+font-weight:700;
+}
+
+/* CATALOG */
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+margin-bottom:60px;
+}
+
+.catalog{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:#fff;
+border-radius:30px;
+padding:30px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+max-width:280px;
+height:280px;
+object-fit:contain;
+margin-bottom:20px;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.5rem;
+}
+
+.card p{
+color:#666;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.card a{
+display:inline-block;
+padding:12px 24px;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:700;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+padding:100px 8%;
+background:#fafafa;
+}
+
+.contact h2{
+font-size:3rem;
+margin-bottom:30px;
+}
+
+.contact p{
+margin:10px 0;
+font-size:1.05rem;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(0,0,0,.05);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo.png" alt="NATHELF">
+</div>
+
+<nav>
+<a href="#catalog">Каталог</a>
+<a href="#contact">Контакты</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Фармацевтика
+<br>
+<span class="gradient">Будущего</span>
+</h1>
+
+<p>
+NATHELF — современная фармацевтическая компания,
+объединяющая инновации, качество и современные технологии.
+</p>
+
+<a href="#catalog" class="btn">
+Перейти в каталог
+</a>
+
+</div>
+
+</section>
+
+<section class="section" id="catalog">
+
+<h2 class="section-title gradient">
+Каталог продукции
+</h2>
+
+<div class="catalog">
+
+<div class="card">
+
+<img src="abifol.png" alt="Abifol">
+
+<h3>Abifol</h3>
+
+<p>
+Описание препарата будет размещено здесь.
+</p>
+
+<a href="product1.html">
+Подробнее
+</a>
+
+</div>
+
+<div class="card">
+
+<img src="agnabella.png" alt="AgnaBella">
+
+<h3>AgnaBella</h3>
+
+<p>
+Описание препарата будет размещено здесь.
+</p>
+
+<a href="product2.html">
+Подробнее
+</a>
+
+</div>
+
+<div class="card">
+
+<img src="estabel.png" alt="Estabel">
+
+<h3>Estabel</h3>
+
+<p>
+Описание препарата будет размещено здесь.
+</p>
+
+<a href="product3.html">
+Подробнее
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2 class="gradient">
+Контакты
+</h2>
+
+<p>📞 +998 95 155 56 88</p>
+
+<p>✉ info@nathelf.com</p>
+
+<p>
+📍 Ташкентская область, Зангиатинский район,
+махалля Янги Бозсув, улица Мунаввар, дом 355
+</p>
+
+</section>
+
+<footer>
+© 2026 NATHELF. Все права защищены.
+</footer>
+
+</body>
+</html>
