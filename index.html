@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NATHELF | Pharmaceutical Future</title>
+
+<meta name="description" content="NATHELF — современная фармацевтическая компания нового поколения.">
+<meta name="keywords" content="NATHELF, Abifol, AgnaBella, Estabel, фармацевтика">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nathelf.uz">
+
+<link rel="icon" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Montserrat,sans-serif;
+background:#fff;
+color:#1e293b;
+overflow-x:hidden;
+}
+.progress{
+position:fixed;top:0;left:0;height:4px;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+width:0;z-index:9999;
+}
+.hero-bg::before,.hero-bg::after{
+content:"";position:absolute;border-radius:50%;
+filter:blur(80px);opacity:.35;
+}
+.hero-bg::before{
+width:350px;height:350px;background:#00d67d;top:-100px;left:-80px;
+}
+.hero-bg::after{
+width:350px;height:350px;background:#ff4fd1;right:-100px;top:100px;
+}
+header{
+position:sticky;top:0;z-index:999;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;background:rgba(255,255,255,.85);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(0,0,0,.05);
+}
+.logo img{height:65px}
+nav a{
+text-decoration:none;color:#1e293b;font-weight:600;margin-left:25px;
+}
+.hero{
+position:relative;
+min-height:90vh;
+display:flex;align-items:center;justify-content:center;
+text-align:center;padding:100px 8%;
+}
+.hero h1{
+font-size:clamp(3rem,7vw,6rem);
+font-weight:800;
+line-height:1.05;
+}
+.gradient{
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.hero p{
+max-width:700px;margin:25px auto;
+font-size:1.15rem;color:#64748b;
+}
+.btn{
+display:inline-block;
+padding:15px 30px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:700;
+background:linear-gradient(90deg,#00d67d,#ff4fd1);
+box-shadow:0 15px 35px rgba(255,79,209,.25);
+}
+.catalog{
+padding:100px 8%;
+}
+.section-title{
+text-align:center;
+font-size:3rem;
+margin-bottom:60px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+.card{
+background:rgba(255,255,255,.85);
+border:1px solid rgba(0,0,0,.06);
+border-radius:30px;
+padding:30px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-12px);
+}
+.card img{
+width:100%;
+max-width:230px;
+height:320px;
+object-fit:contain;
+transition:.4s;
+}
+.card:hover img{
+transform:scale(1.06);
+}
+.card h3{
+margin:20px 0;
+font-size:1.8rem;
+}
+.contact{
+padding:100px 8%;
+text-align:center;
+background:#f8fafc;
+}
+.contact p{margin:12px 0}
+.float-btn{
+position:fixed;
+right:20px;
+width:58px;height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:24px;
+color:#fff;
+z-index:999;
+}
+.telegram{bottom:90px;background:#229ED9}
+.whatsapp{bottom:20px;background:#25D366}
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+@media(max-width:768px){
+nav{display:none}
+.hero h1{font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header>
+<div class="logo">
+<img src="logo.png" alt="NATHELF">
+</div>
+<nav>
+<a href="#catalog">Каталог</a>
+<a href="#contact">Контакты</a>
+</nav>
+</header>
+
+<section class="hero hero-bg">
+<div>
+<h1>Фармацевтика <span class="gradient">Будущего</span></h1>
+<p>Инновационные решения для здоровья и качества жизни.</p>
+<a href="#catalog" class="btn">Смотреть каталог</a>
+</div>
+</section>
+
+<section id="catalog" class="catalog reveal">
+<h2 class="section-title gradient">Продукция NATHELF</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="abifol.png" alt="Abifol">
+<h3>Abifol</h3>
+<a href="product1.html" class="btn">Подробнее</a>
+</div>
+
+<div class="card">
+<img src="agnabella.png" alt="AgnaBella">
+<h3>AgnaBella</h3>
+<a href="product2.html" class="btn">Подробнее</a>
+</div>
+
+<div class="card">
+<img src="estabel.png" alt="Estabel">
+<h3>Estabel</h3>
+<a href="product3.html" class="btn">Подробнее</a>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2 class="section-title gradient">Контакты</h2>
+<p><strong>Телефон:</strong> +998 95 155 56 88</p>
+<p><strong>Email:</strong> info@nathelf.com</p>
+<p><strong>Адрес:</strong> Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</p>
+</section>
+
+<a class="float-btn telegram" href="#">✈</a>
+<a class="float-btn whatsapp" href="#">☎</a>
+
+<script>
+window.addEventListener('scroll',()=>{
+const winScroll=document.body.scrollTop||document.documentElement.scrollTop;
+const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById('progress').style.width=(winScroll/height)*100+'%';
+});
+
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+reveals.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('active');
+}
+});
+});
+</script>
+
+</body>
+</html>
