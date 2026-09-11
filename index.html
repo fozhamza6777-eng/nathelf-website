@@ -24,6 +24,7 @@ font-family:Montserrat,sans-serif;
 background:#fff;
 color:#1e293b;
 overflow-x:hidden;
+transition:background-color .6s ease;
 }
 .progress{
 position:fixed;top:0;left:0;height:4px;
@@ -31,25 +32,19 @@ background:linear-gradient(90deg,#00d67d,#ff4fd1);
 width:0;z-index:9999;
 box-shadow:0 0 12px rgba(0,214,125,.6);
 }
+.hero-bg{--mx:0px;--my:0px;--sy:0px}
 .hero-bg::before,.hero-bg::after{
 content:"";position:absolute;border-radius:50%;
 filter:blur(80px);opacity:.35;
+will-change:transform;
 }
 .hero-bg::before{
 width:350px;height:350px;background:#00d67d;top:-100px;left:-80px;
-animation:float1 9s ease-in-out infinite alternate;
+transform:translate(var(--mx),calc(var(--my) + var(--sy)));
 }
 .hero-bg::after{
 width:350px;height:350px;background:#ff4fd1;right:-100px;top:100px;
-animation:float2 11s ease-in-out infinite alternate;
-}
-@keyframes float1{
-0%{transform:translate(0,0) scale(1)}
-100%{transform:translate(40px,50px) scale(1.2)}
-}
-@keyframes float2{
-0%{transform:translate(0,0) scale(1)}
-100%{transform:translate(-35px,-40px) scale(1.12)}
+transform:translate(calc(var(--mx) * 0.6),calc(var(--my) * 0.6 + var(--sy) * 1.4));
 }
 header{
 position:sticky;top:0;z-index:999;
@@ -74,6 +69,7 @@ position:relative;
 min-height:90vh;
 display:flex;align-items:center;justify-content:center;
 text-align:center;padding:100px 8%;
+overflow:hidden;
 }
 .hero h1{
 font-size:clamp(3rem,7vw,6rem);
@@ -125,74 +121,76 @@ animation:bounce 2s ease-in-out infinite;
 0%,100%{transform:translate(-50%,0)}
 50%{transform:translate(-50%,10px)}
 }
-.catalog{
-padding:100px 8%;
+
+/* BigText: a large statement that assembles letter by letter on scroll */
+.bigtext{
+padding:140px 8%;
+text-align:center;
 }
+.bigtext-title{
+font-size:clamp(2rem,5vw,3.6rem);
+font-weight:800;line-height:1.25;
+max-width:1000px;margin:0 auto;
+}
+
 .section-title{
 text-align:center;
 font-size:3rem;
 margin-bottom:60px;
 perspective:600px;
 }
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+
+/* Carousel: "Choose your product" one-at-a-time showcase */
+.carousel-section{padding:100px 0 120px;overflow:hidden}
+.carousel{
+position:relative;
+display:flex;align-items:center;gap:16px;
+max-width:1000px;margin:0 auto;padding:0 8%;
 }
-.card{
-background:rgba(255,255,255,.85);
-border:1px solid rgba(0,0,0,.06);
-border-radius:30px;
-padding:30px;
+.car-viewport{overflow:hidden;width:100%;border-radius:40px}
+.car-track{display:flex;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.car-slide{
+flex:0 0 100%;
+display:flex;flex-direction:column;align-items:center;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-transition:box-shadow .35s ease;
-will-change:transform;
+padding:70px 20px;
 }
-.card:hover{
-box-shadow:0 25px 55px rgba(0,0,0,.14);
+.car-slide img{
+width:100%;max-width:280px;height:360px;
+object-fit:contain;margin-bottom:25px;
+filter:drop-shadow(0 20px 35px rgba(0,0,0,.15));
+transition:transform .4s ease;
 }
-.card img{
-width:100%;
-max-width:230px;
-height:320px;
-object-fit:contain;
-transition:.4s;
+.car-slide:hover img{transform:scale(1.05) translateY(-6px)}
+.car-slide h3{font-size:2rem;margin-bottom:22px}
+.car-arrow{
+flex:0 0 auto;
+width:52px;height:52px;border-radius:50%;
+border:none;background:#fff;color:#1e293b;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+font-size:1.6rem;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+z-index:2;transition:transform .3s ease,box-shadow .3s ease;
 }
-.card:hover img{
-transform:scale(1.06);
+.car-arrow:hover{transform:scale(1.1);box-shadow:0 15px 35px rgba(0,0,0,.18)}
+.car-dots{display:flex;justify-content:center;gap:10px;margin-top:30px}
+.car-dot{
+width:10px;height:10px;border-radius:50%;
+background:#d1d5db;border:none;cursor:pointer;
+transition:.3s;padding:0;
 }
-.card h3{
-margin:20px 0;
-font-size:1.8rem;
+.car-dot.active{background:linear-gradient(90deg,#00d67d,#ff4fd1);width:28px;border-radius:6px}
+@media(max-width:640px){
+.car-arrow{width:40px;height:40px;font-size:1.2rem}
+.car-slide{padding:50px 10px}
 }
+
 .contact{
 padding:100px 8%;
 text-align:center;
 background:#f8fafc;
 }
 .contact p{margin:12px 0}
-.float-btn{
-position:fixed;
-right:20px;
-width:58px;height:58px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-font-size:24px;
-color:#fff;
-z-index:999;
-animation:pulse 2.6s ease-out infinite;
-}
-.telegram{bottom:90px;background:#229ED9;animation-delay:.3s}
-.whatsapp{bottom:20px;background:#25D366}
-@keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(0,0,0,.18)}
-70%{box-shadow:0 0 0 16px rgba(0,0,0,0)}
-100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}
-}
 .reveal{
 opacity:0;
 transform:translateY(40px);
@@ -239,60 +237,72 @@ nav{display:none}
 <div class="scroll-cue">↓</div>
 </section>
 
-<section id="catalog" class="catalog">
-<h2 class="section-title gradient kinetic">Продукция NATHELF</h2>
+<section class="bigtext">
+<h2 class="bigtext-title kinetic">27 витаминов. 8 препаратов. Одна забота — ваше здоровье.</h2>
+</section>
 
-<div class="grid">
+<section id="catalog" class="carousel-section">
+<h2 class="section-title gradient kinetic">Выберите продукт</h2>
 
-<div class="card">
-<img src="abifol.png" alt="Abifol">
+<div class="carousel">
+<button class="car-arrow car-prev" aria-label="Предыдущий">‹</button>
+<div class="car-viewport">
+<div class="car-track" id="carTrack">
+
+<div class="car-slide" data-color="#ffe1ee">
+<a href="product1.html"><img src="abifol.png" alt="Abifol"></a>
 <h3>Abifol</h3>
 <a href="product1.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="agnabella.png" alt="AgnaBella">
+<div class="car-slide" data-color="#f6e0ff">
+<a href="product2.html"><img src="agnabella.png" alt="AgnaBella"></a>
 <h3>AgnaBella</h3>
 <a href="product2.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="estabel.png" alt="Estabel">
+<div class="car-slide" data-color="#ece0ff">
+<a href="product3.html"><img src="estabel.png" alt="Estabel"></a>
 <h3>Estabel</h3>
 <a href="product3.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="bellafemina.png" alt="Bellafemina">
+<div class="car-slide" data-color="#e3e6ff">
+<a href="product4.html"><img src="bellafemina.png" alt="Bellafemina"></a>
 <h3>Bellafemina</h3>
 <a href="product4.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="sefe.png" alt="Sefe">
+<div class="car-slide" data-color="#dcf7e7">
+<a href="product5.html"><img src="sefe.png" alt="Sefe"></a>
 <h3>Sefe</h3>
 <a href="product5.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="natmasto.png" alt="AgnaBella">
+<div class="car-slide" data-color="#dbf5f0">
+<a href="product6.html"><img src="natmasto.png" alt="Natmasto"></a>
 <h3>Natmasto</h3>
 <a href="product6.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="serpuro.png" alt="Serpuro">
+<div class="car-slide" data-color="#ede0ff">
+<a href="product7.html"><img src="serpuro.png" alt="Serpuro"></a>
 <h3>Serpuro</h3>
 <a href="product7.html" class="btn">Подробнее</a>
 </div>
 
-<div class="card">
-<img src="justferton.png" alt="Justferton">
+<div class="car-slide" data-color="#dde9ff">
+<a href="product8.html"><img src="justferton.png" alt="Justferton"></a>
 <h3>Justferton</h3>
 <a href="product8.html" class="btn">Подробнее</a>
 </div>
 
 </div>
+</div>
+<button class="car-arrow car-next" aria-label="Следующий">›</button>
+</div>
+
+<div class="car-dots" id="carDots"></div>
 </section>
 
 <section id="contact" class="contact">
@@ -301,9 +311,6 @@ nav{display:none}
 <p class="reveal"><strong>Email:</strong> info@nathelf.com</p>
 <p class="reveal"><strong>Адрес:</strong> Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</p>
 </section>
-
-<a class="float-btn telegram" href="#">✈</a>
-<a class="float-btn whatsapp" href="#">☎</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -325,6 +332,66 @@ const height=document.documentElement.scrollHeight-document.documentElement.clie
 document.getElementById('progress').style.width=(winScroll/height)*100+'%';
 }
 window.addEventListener('scroll',updateProgress);
+
+// Hero background blobs follow the cursor and drift further down while scrolling.
+(function(){
+  const heroBg=document.querySelector('.hero-bg');
+  if(!heroBg) return;
+  let targetX=0,targetY=0,targetSY=0;
+  let curX=0,curY=0,curSY=0;
+  window.addEventListener('mousemove',e=>{
+    targetX=((e.clientX/window.innerWidth)-.5)*70;
+    targetY=((e.clientY/window.innerHeight)-.5)*70;
+  });
+  window.addEventListener('scroll',()=>{
+    targetSY=window.scrollY*.25;
+  },{passive:true});
+  function tick(){
+    curX+=(targetX-curX)*.08;
+    curY+=(targetY-curY)*.08;
+    curSY+=(targetSY-curSY)*.08;
+    heroBg.style.setProperty('--mx',curX.toFixed(2)+'px');
+    heroBg.style.setProperty('--my',curY.toFixed(2)+'px');
+    heroBg.style.setProperty('--sy',curSY.toFixed(2)+'px');
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// Product carousel: click-driven, no scroll-hijacking.
+// Navigating the carousel also tints the whole page background to match the active product.
+(function(){
+  const track=document.getElementById('carTrack');
+  const dotsWrap=document.getElementById('carDots');
+  if(!track) return;
+  const slides=Array.from(track.children);
+  let carIndex=0;
+  slides.forEach((_,i)=>{
+    const dot=document.createElement('button');
+    dot.className='car-dot'+(i===0?' active':'');
+    dot.setAttribute('aria-label','Слайд '+(i+1));
+    dot.addEventListener('click',()=>goToSlide(i));
+    dotsWrap.appendChild(dot);
+  });
+  function goToSlide(i){
+    carIndex=(i+slides.length)%slides.length;
+    track.style.transform='translateX(-'+(carIndex*100)+'%)';
+    dotsWrap.querySelectorAll('.car-dot').forEach((d,di)=>d.classList.toggle('active',di===carIndex));
+    const color=slides[carIndex].dataset.color;
+    if(color) document.body.style.backgroundColor=color;
+  }
+  document.querySelector('.car-prev').addEventListener('click',()=>goToSlide(carIndex-1));
+  document.querySelector('.car-next').addEventListener('click',()=>goToSlide(carIndex+1));
+
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting && document.body.style.backgroundColor){
+        document.body.style.backgroundColor='';
+      }
+    });
+  },{threshold:0});
+  io.observe(document.querySelector('.carousel-section'));
+})();
 
 // Split text into per-letter spans for kinetic typography.
 function splitChars(el){
@@ -371,7 +438,7 @@ if(window.gsap){
     .from('.hero .btn',{y:20,opacity:0,duration:.6,ease:'power2.out'},'-=0.4')
     .from('.scroll-cue',{opacity:0,duration:.6},'-=0.3');
 
-  // Section titles assemble as they scroll into view
+  // Section titles & big statement assemble as they scroll into view
   document.querySelectorAll('.kinetic').forEach(el=>{
     const chars=splitChars(el);
     gsap.from(chars,{
@@ -381,12 +448,10 @@ if(window.gsap){
     });
   });
 
-  // Product cards & contact lines reveal on scroll
-  gsap.utils.toArray('.card').forEach(card=>{
-    gsap.from(card,{
-      y:60,opacity:0,scale:.92,duration:.7,ease:'power3.out',
-      scrollTrigger:{trigger:card,start:'top 92%'}
-    });
+  // Carousel & contact lines reveal on scroll
+  gsap.from('.carousel',{
+    y:60,opacity:0,duration:.8,ease:'power3.out',
+    scrollTrigger:{trigger:'.carousel',start:'top 85%'}
   });
   gsap.utils.toArray('.contact .reveal').forEach((p,i)=>{
     gsap.to(p,{
@@ -394,26 +459,10 @@ if(window.gsap){
       scrollTrigger:{trigger:p,start:'top 90%'}
     });
   });
-
-  // Subtle 3D tilt on product cards
-  document.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      gsap.to(card,{
-        rotateY:x*10,rotateX:-y*10,y:-10,
-        transformPerspective:700,duration:.4,ease:'power2.out'
-      });
-    });
-    card.addEventListener('mouseleave',()=>{
-      gsap.to(card,{rotateY:0,rotateX:0,y:0,duration:.5,ease:'power3.out'});
-    });
-  });
 }else{
   // Fallback for when the animation library fails to load:
   // reveal everything with the original simple scroll-fade behaviour.
-  document.querySelectorAll('.kinetic,.card,.contact .reveal').forEach(el=>el.classList.add('reveal'));
+  document.querySelectorAll('.kinetic,.carousel,.contact .reveal').forEach(el=>el.classList.add('reveal'));
   const reveals=document.querySelectorAll('.reveal');
   function checkReveal(){
     reveals.forEach(el=>{
