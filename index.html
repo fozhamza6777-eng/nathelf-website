@@ -214,28 +214,7 @@ line-height:1.08;letter-spacing:-.035em;
 max-width:1100px;margin:0 auto;
 }
 
-/* ---------- Kinetic text helpers ---------- */
 .char{display:inline-block;will-change:transform,opacity}
-.gradient{
-background:linear-gradient(90deg,#00d67d,#ff4fd1,#00d67d);
-background-size:200% auto;
--webkit-background-clip:text;background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shimmer 6s linear infinite;
-}
-.gradient .char{
-background-image:linear-gradient(90deg,#00d67d,#ff4fd1,#00d67d);background-size:200% auto;
--webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-animation:shimmer 6s linear infinite;
-}
-@keyframes shimmer{to{background-position:-200% center}}
-.section-title{
-text-align:center;
-font-size:clamp(2.2rem,4.5vw,3.6rem);
-font-weight:500;letter-spacing:-.035em;
-margin-bottom:50px;perspective:600px;
-}
-
 .bigtext-cta{
 display:inline-flex;align-items:center;gap:8px;margin-top:44px;
 padding:13px 22px;border-radius:999px;
@@ -247,14 +226,79 @@ transition:transform .35s var(--ease);
 
 /* ---------- Contact ---------- */
 .contact{
-padding:16vh 6vw 8vh;text-align:center;
+position:relative;overflow:hidden;
+min-height:100vh;min-height:100svh;
+display:flex;flex-direction:column;
+padding-top:20vh;margin-top:-32px;
+border-radius:32px 32px 0 0;
 background:#05080f;color:#fff;
 }
-.contact p{margin:12px 0;color:rgba(255,255,255,.75);line-height:1.5}
-.contact strong{color:#fff;font-weight:600}
-.contact .copyright{margin-top:12vh;font-size:12px;color:rgba(255,255,255,.38)}
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
+.contact-video{
+position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+opacity:.4;filter:blur(18px) saturate(1.2);transform:scale(1.15);
+}
+.contact-shade{
+position:absolute;inset:0;pointer-events:none;
+background:
+radial-gradient(ellipse at 72% 45%,rgba(5,8,15,.15),rgba(5,8,15,.85) 70%),
+linear-gradient(to bottom,rgba(5,8,15,.9),rgba(5,8,15,0) 30%);
+}
+.contact-inner{
+position:relative;z-index:1;flex:1;
+display:grid;grid-template-columns:1.1fr 1fr;gap:6vw;align-items:end;
+padding:0 var(--gutter);
+}
+.contact-title{
+font-weight:500;font-size:clamp(2.8rem,6.4vw,6.4rem);
+line-height:.96;letter-spacing:-.045em;
+}
+.contact-lead{margin-top:22px;max-width:420px;font-size:15px;line-height:1.55;color:rgba(255,255,255,.7)}
+.contact-cards{display:grid;gap:12px}
+.c-card{
+position:relative;display:block;
+padding:22px 70px 22px 24px;border-radius:20px;
+background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+color:#fff;text-decoration:none;
+transition:background .35s,border-color .35s,transform .45s var(--ease);
+}
+a.c-card:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);transform:translateY(-3px)}
+.c-label{
+display:block;margin-bottom:8px;
+font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+color:rgba(255,255,255,.5);
+}
+.c-value{display:block;font-size:clamp(1.15rem,1.8vw,1.6rem);font-weight:500;letter-spacing:-.02em;line-height:1.3}
+.c-card--address .c-value{font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.45;color:rgba(255,255,255,.88)}
+.c-icon{
+position:absolute;right:20px;top:20px;
+width:36px;height:36px;border-radius:50%;
+display:grid;place-items:center;font-size:15px;
+background:#fff;color:var(--ink);
+transition:transform .45s var(--ease);
+}
+.c-card--address .c-icon{background:rgba(255,255,255,.1);color:#fff}
+a.c-card:hover .c-icon{transform:rotate(45deg)}
+.footer-bar{
+position:relative;z-index:1;
+display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+margin:12vh var(--gutter) 0;padding:22px 0;
+border-top:1px solid rgba(255,255,255,.1);
+font-size:13px;color:rgba(255,255,255,.5);
+}
+.footer-logo img{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.9}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:#fff}
+.footer-mark{
+position:relative;z-index:0;
+font-size:21vw;font-weight:600;letter-spacing:-.06em;line-height:.8;
+text-align:center;white-space:nowrap;user-select:none;
+margin-bottom:-.08em;
+background:linear-gradient(to bottom,rgba(255,255,255,.16),rgba(255,255,255,0) 85%);
+-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
 /* ---------- Film lightbox ---------- */
 .film{
@@ -306,6 +350,10 @@ background:
 linear-gradient(to bottom,rgba(255,255,255,.7),rgba(255,255,255,0) 32%),
 linear-gradient(to top,rgba(255,255,255,.9) 0%,rgba(255,255,255,.6) 24%,rgba(255,255,255,0) 44%);
 }
+.contact{padding-top:14vh}
+.contact-inner{grid-template-columns:1fr;gap:40px;align-items:start}
+.footer-bar{flex-direction:column;align-items:flex-start;gap:14px}
+.footer-mark{font-size:24vw}
 }
 @media(prefers-reduced-motion:reduce){
 *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -363,11 +411,49 @@ linear-gradient(to top,rgba(255,255,255,.9) 0%,rgba(255,255,255,.6) 24%,rgba(255
 </section>
 
 <footer id="contact" class="contact" data-nav="dark" data-link="#contact">
-<h2 class="section-title gradient kinetic">Контакты</h2>
-<p class="reveal"><strong>Телефон:</strong> +998 95 155 56 88</p>
-<p class="reveal"><strong>Email:</strong> info@nathelf.com</p>
-<p class="reveal"><strong>Адрес:</strong> Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</p>
-<p class="copyright">© 2026 NATHELF</p>
+<video class="contact-video" src="media/justferton-loop.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+<div class="contact-shade"></div>
+
+<div class="contact-inner">
+<div class="contact-head">
+<p class="badge"><span class="dot"></span>Контакты</p>
+<h2 class="contact-title"><span class="ln"><span>Свяжитесь</span></span><span class="ln"><span>с нами</span></span></h2>
+<p class="contact-lead">Ответим на вопросы о нашей продукции и сотрудничестве.</p>
+<div class="hero-actions">
+<a href="tel:+998951555688" class="btn-white">Позвонить</a>
+<a href="mailto:info@nathelf.com" class="btn-glass"><span class="play" aria-hidden="true">✉</span>Написать</a>
+</div>
+</div>
+
+<div class="contact-cards">
+<a class="c-card" href="tel:+998951555688">
+<span class="c-label">Телефон</span>
+<span class="c-value">+998 95 155 56 88</span>
+<span class="c-icon" aria-hidden="true">↗</span>
+</a>
+<a class="c-card" href="mailto:info@nathelf.com">
+<span class="c-label">Email</span>
+<span class="c-value">info@nathelf.com</span>
+<span class="c-icon" aria-hidden="true">↗</span>
+</a>
+<div class="c-card c-card--address">
+<span class="c-label">Адрес</span>
+<span class="c-value">Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</span>
+<span class="c-icon" aria-hidden="true">●</span>
+</div>
+</div>
+</div>
+
+<div class="footer-bar">
+<a class="footer-logo" href="#top" aria-label="NATHELF — наверх"><img src="logo.png" alt="NATHELF"></a>
+<nav class="footer-links" aria-label="Нижнее меню">
+<a href="#top">Главная</a>
+<a href="#serpuro">SerPuro</a>
+<a href="catalog.html">Продукция</a>
+</nav>
+<p>© 2026 NATHELF</p>
+</div>
+<div class="footer-mark" aria-hidden="true">NATHELF</div>
 </footer>
 
 <div class="film" id="film" role="dialog" aria-modal="true" aria-label="Ролик Justferton" hidden>
@@ -424,12 +510,15 @@ function updateNav(){
 window.addEventListener('scroll',updateNav,{passive:true});
 updateNav();
 
-// The hero video only needs to run while the hero is on screen.
-const heroVideo=document.querySelector('.hero-video');
-new IntersectionObserver(([entry])=>{
-  if(entry.isIntersecting) heroVideo.play().catch(()=>{});
-  else heroVideo.pause();
-}).observe(document.querySelector('.hero'));
+// Background videos only run while their section is on screen.
+function playWhileVisible(video,section){
+  new IntersectionObserver(([entry])=>{
+    if(entry.isIntersecting) video.play().catch(()=>{});
+    else video.pause();
+  }).observe(section);
+}
+playWhileVisible(document.querySelector('.hero-video'),document.querySelector('.hero'));
+playWhileVisible(document.querySelector('.contact-video'),document.querySelector('.contact'));
 
 // Film lightbox
 (function(){
@@ -487,8 +576,8 @@ if(hasGsap && !reduceMotion){
     .from('.nav',{y:-30,opacity:0,duration:1},.1)
     .from('.portal',{opacity:0,y:40,scale:.9,duration:1.4},.15)
     .from('.hero-title .ln>span',{yPercent:115,duration:1.2,stagger:.09},.3)
-    .from('.badge',{opacity:0,y:12,duration:.9},.35)
-    .from('.hero-actions>*',{opacity:0,y:16,duration:.9,stagger:.08},.55)
+    .from('.hero .badge',{opacity:0,y:12,duration:.9},.35)
+    .from('.hero .hero-actions>*',{opacity:0,y:16,duration:.9,stagger:.08},.55)
     .from('.hero-note',{opacity:0,y:16,duration:.9},.65);
   gsap.fromTo('.portal-sheen',{xPercent:-70},{xPercent:70,duration:2.4,ease:'power2.inOut',repeat:-1,repeatDelay:2.6,delay:.8});
 
@@ -568,11 +657,16 @@ if(hasGsap && !reduceMotion){
     y:20,opacity:0,duration:.7,ease:'power3.out',
     scrollTrigger:{trigger:'.bigtext-cta',start:'top 92%'}
   });
-  gsap.utils.toArray('.contact .reveal').forEach((p,i)=>{
-    gsap.to(p,{
-      opacity:1,y:0,duration:.6,ease:'power2.out',delay:i*.08,
-      scrollTrigger:{trigger:p,start:'top 90%'}
-    });
+  // Contact: headline lines rise out of their masks, then the cards stack in.
+  gsap.timeline({scrollTrigger:{trigger:'.contact-inner',start:'top 75%'},defaults:{ease:'expo.out'}})
+    .from('.contact .badge',{opacity:0,y:12,duration:.9},0)
+    .from('.contact-title .ln>span',{yPercent:115,duration:1.2,stagger:.09},.05)
+    .from('.contact-lead',{opacity:0,y:16,duration:.9},.3)
+    .from('.contact .hero-actions>*',{opacity:0,y:16,duration:.9,stagger:.08},.4)
+    .from('.c-card',{opacity:0,y:40,duration:1,stagger:.1},.2);
+  gsap.from('.footer-mark',{
+    yPercent:40,opacity:0,duration:1.4,ease:'expo.out',
+    scrollTrigger:{trigger:'.footer-bar',start:'top 95%'}
   });
 
   // Cursor follower (mouse devices only).
@@ -592,7 +686,6 @@ if(hasGsap && !reduceMotion){
   storyVideo.loop=true;
   storyVideo.autoplay=true;
   storyVideo.play().catch(()=>{});
-  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('active'));
 }
 </script>
 
