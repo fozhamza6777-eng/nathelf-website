@@ -175,6 +175,12 @@ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
 scale:1.06;transition:scale 1.4s var(--ease);
 }
 .next:hover video{scale:1}
+.next--catalog{
+background:
+radial-gradient(ellipse at 75% 35%,rgba(90,130,255,.24),transparent 55%),
+radial-gradient(ellipse at 18% 85%,rgba(0,214,125,.16),transparent 50%),
+#05080f;
+}
 .next-shade{
 position:absolute;inset:0;pointer-events:none;
 background:linear-gradient(to top,rgba(5,8,15,.82) 0%,rgba(5,8,15,.2) 55%,rgba(5,8,15,.35) 100%);
