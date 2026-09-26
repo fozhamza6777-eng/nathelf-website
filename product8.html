@@ -3,257 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Justferton | NATHELF</title>
-
-<link rel="icon" type="image/png" href="logo.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
-}
-
-body{
-background:#fff;
-color:#111;
-overflow-x:hidden;
-}
-
-header{
-position:sticky;
-top:0;
-background:rgba(255,255,255,.9);
-backdrop-filter:blur(20px);
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(0,0,0,.05);
-z-index:1000;
-}
-
-.logo img{
-height:60px;
-}
-
-.back-btn{
-text-decoration:none;
-padding:12px 24px;
-border-radius:40px;
-background:linear-gradient(90deg,#00d67d,#ff4fd1);
-color:white;
-font-weight:700;
-}
-
-.hero{
-padding:80px 8%;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
-
-.product-image img{
-width:100%;
-max-width:500px;
-display:block;
-margin:auto;
-}
-
-.product-info h1{
-font-size:4rem;
-margin-bottom:20px;
-}
-
-.gradient{
-background:linear-gradient(90deg,#00d67d,#ff4fd1);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.product-info p{
-line-height:1.9;
-color:#555;
-}
-
-.section{
-padding:80px 8%;
-}
-
-.section-title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:50px;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.gallery img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-.box{
-background:#fafafa;
-padding:35px;
-border-radius:25px;
-margin-bottom:25px;
-}
-
-.box h3{
-margin-bottom:15px;
-}
-
-.box p{
-line-height:1.8;
-color:#555;
-}
-
-.contact{
-padding:80px 8%;
-text-align:center;
-}
-
-.contact h2{
-font-size:2.5rem;
-margin-bottom:20px;
-}
-
-.contact p{
-margin:10px 0;
-}
-
-.footer-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 28px;
-border-radius:40px;
-background:linear-gradient(90deg,#00d67d,#ff4fd1);
-color:white;
-text-decoration:none;
-font-weight:700;
-}
-
-@media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.product-info h1{
-font-size:3rem;
-}
-
-}
-
-</style>
+<meta name="description" content="Justferton 500 — биологически активная добавка с мио-инозитолом (Myo-Inositol) 500 мг для поддержки гормонального баланса и репродуктивного здоровья.">
+<link rel="canonical" href="https://nathelf.uz/product8.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/product.css">
 </head>
 
-<body>
+<body data-nav="dark">
 
-<header>
-
-<div class="logo">
-<img src="logo.png" alt="NATHELF">
-</div>
-
-<a href="catalog.html#justferton" class="back-btn">
-← Назад в каталог
-</a>
-
+<header class="nav">
+<a class="nav-logo" href="index.html" aria-label="NATHELF — на главную"><img src="logo.png" alt="NATHELF"></a>
+<nav class="nav-pill" aria-label="Основное меню">
+<a href="index.html">Главная</a>
+<a href="index.html#serpuro">SerPuro</a>
+<a href="catalog.html#justferton" class="is-active">Продукция</a>
+<a href="#contact">Контакты</a>
+</nav>
+<a class="nav-cta" href="#contact">Связаться</a>
 </header>
 
-<section class="hero">
-
-<div class="product-image">
-<img src="justferton.png" alt="Justferton">
+<section class="p-hero" data-nav="dark">
+<video class="p-hero-video" src="media/catalog/justferton.mp4" poster="media/catalog/justferton.jpg" autoplay muted playsinline preload="auto"></video>
+<div class="p-hero-shade"></div>
+<div class="p-hero-copy">
+<a class="back-link" href="catalog.html#justferton">← Каталог</a>
+<p class="badge"><span class="dot"></span>Myo-Inositol 500 мг</p>
+<h1 class="p-title"><span class="ln"><span>Justferton</span></span></h1>
+<p class="p-lead">Justferton 500 — биологически активная добавка с мио-инозитолом (Myo-Inositol) 500 мг для поддержки гормонального баланса, репродуктивного здоровья и контроля аппетита.</p>
+<div class="p-actions">
+<a class="btn-white" href="#details">О препарате <span aria-hidden="true">↓</span></a>
+<button type="button" class="btn-glass" data-film="media/catalog/justferton.mp4"><span class="play" aria-hidden="true">▶</span>Смотреть ролик</button>
 </div>
-
-<div class="product-info">
-
-<h1 class="gradient">
-Justferton
-</h1>
-
-<p>
-Justferton 500 — биологически активная добавка с мио-инозитолом (Myo-Inositol)
-500 мг для поддержки гормонального баланса, репродуктивного здоровья и
-контроля аппетита.
-</p>
-
 </div>
-
+<ul class="p-facts" aria-label="Коротко о продукте">
+<li>Мио-инозитол 500 мг</li>
+<li>60 капсул</li>
+</ul>
 </section>
 
-<section class="section">
-
-<div class="box">
-<h3>Описание</h3>
-<p>
-Способствует балансу гормонов и поддержанию репродуктивного здоровья, а также
-помогает контролировать аппетит.
-</p>
+<section class="details" id="details" data-nav="light">
+<div class="details-head">
+<p class="eyebrow">О препарате</p>
+<h2 class="details-title"><span class="ln"><span>Всё, что важно</span></span><span class="ln"><span>знать</span></span></h2>
 </div>
-
-<div class="box">
-<h3>Показания к применению</h3>
-<p>
-Гормональный дисбаланс, поддержка репродуктивного здоровья, контроль аппетита.
-</p>
+<div class="spec">
+<div class="spec-row">
+<h3 class="spec-label"><span>01</span>Описание</h3>
+<p class="spec-text">Способствует балансу гормонов и поддержанию репродуктивного здоровья, а также помогает контролировать аппетит.</p>
 </div>
-
-<div class="box">
-<h3>Состав</h3>
-<p>
-Мио-инозитол (Myo-Inositol) — 500 мг на порцию. 60 капсул в упаковке. БАД к пище,
-не является лекарственным средством.
-</p>
+<div class="spec-row">
+<h3 class="spec-label"><span>02</span>Показания к применению</h3>
+<p class="spec-text">Гормональный дисбаланс, поддержка репродуктивного здоровья, контроль аппетита.</p>
 </div>
-
-<div class="box">
-<h3>Инструкция</h3>
-<p>
-Принимать согласно инструкции на упаковке. Перед применением рекомендуется
-проконсультироваться с врачом.
-</p>
+<div class="spec-row">
+<h3 class="spec-label"><span>03</span>Состав</h3>
+<p class="spec-text">Мио-инозитол (Myo-Inositol) — 500 мг на порцию. 60 капсул в упаковке. БАД к пище, не является лекарственным средством.</p>
 </div>
-
+<div class="spec-row">
+<h3 class="spec-label"><span>04</span>Инструкция</h3>
+<p class="spec-text">Принимать согласно инструкции на упаковке. Перед применением рекомендуется проконсультироваться с врачом.</p>
+</div>
+</div>
 </section>
 
-<section class="contact">
+<section class="gallery" data-nav="light" aria-label="Галерея">
+<div class="gallery-head">
+<h2 class="gallery-title">Галерея</h2>
+<div class="gallery-nav">
+<button type="button" class="round-btn" data-gallery="-1" aria-label="Назад">‹</button>
+<button type="button" class="round-btn" data-gallery="1" aria-label="Вперёд">›</button>
+</div>
+</div>
+<div class="gallery-track">
+<button type="button" class="g-item g-item--pack" data-image="justferton.png"><img src="justferton.png" alt="Justferton — упаковка" loading="lazy"></button>
+</div>
+</section>
 
-<h2 class="gradient">
-Контакты
-</h2>
-
-<p>📞 +998 95 155 56 88</p>
-<p>✉ info@nathelf.com</p>
-<p>📍 Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</p>
-
-<a href="catalog.html#justferton" class="footer-btn">
-Вернуться в каталог
+<a class="next" href="product1.html" data-nav="dark">
+<video data-src="media/catalog/abifol.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+<div class="next-shade"></div>
+<div class="next-copy">
+<div><p class="eyebrow">Следующий продукт</p><p class="next-name">Abifol</p></div>
+<span class="next-arrow" aria-hidden="true">→</span>
+</div>
 </a>
 
-</section>
+<footer class="contact" id="contact" data-nav="dark">
+<div class="contact-inner">
+<div>
+<p class="badge"><span class="dot"></span>Контакты</p>
+<h2 class="contact-title"><span class="ln"><span>Остались</span></span><span class="ln"><span>вопросы?</span></span></h2>
+<p class="contact-lead">Ответим на вопросы о нашей продукции и сотрудничестве.</p>
+<div class="contact-actions">
+<a href="tel:+998951555688" class="btn-white">Позвонить</a>
+<a href="mailto:info@nathelf.com" class="btn-glass"><span class="play" aria-hidden="true">✉</span>Написать</a>
+</div>
+</div>
+<div class="contact-cards">
+<a class="c-card" href="tel:+998951555688"><span class="c-label">Телефон</span><span class="c-value">+998 95 155 56 88</span><span class="c-icon" aria-hidden="true">↗</span></a>
+<a class="c-card" href="mailto:info@nathelf.com"><span class="c-label">Email</span><span class="c-value">info@nathelf.com</span><span class="c-icon" aria-hidden="true">↗</span></a>
+<div class="c-card c-card--address"><span class="c-label">Адрес</span><span class="c-value">Ташкентская область, Зангиатинский район, махалля Янги Бозсув, улица Мунаввар, дом 355</span><span class="c-icon" aria-hidden="true">●</span></div>
+</div>
+</div>
+<div class="footer-bar">
+<a class="footer-logo" href="index.html" aria-label="NATHELF — на главную"><img src="logo.png" alt="NATHELF"></a>
+<nav class="footer-links" aria-label="Нижнее меню">
+<a href="index.html">Главная</a>
+<a href="catalog.html">Продукция</a>
+<a href="index.html#contact">Контакты</a>
+</nav>
+<p>© 2026 NATHELF</p>
+</div>
+<div class="footer-mark" aria-hidden="true">NATHELF</div>
+</footer>
 
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Просмотр" hidden>
+<button type="button" class="viewer-close" aria-label="Закрыть">×</button>
+<div class="viewer-body"></div>
+</div>
+<div class="cursor" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/product.js"></script>
 </body>
 </html>
