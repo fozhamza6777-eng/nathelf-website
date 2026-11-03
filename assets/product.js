@@ -122,10 +122,24 @@
     .from('.p-actions>*',{opacity:0,y:16,duration:.9,stagger:.08},.55)
     .from('.p-facts li',{opacity:0,x:20,duration:.9,stagger:.08},.6);
 
-  // The hero drifts away as you scroll past it.
-  gsap.timeline({scrollTrigger:{trigger:'.p-hero',start:'top top',end:'bottom top',scrub:true}})
-    .to('.p-hero-video',{scale:1.12,ease:'none'},0)
-    .to('.p-hero-copy,.p-facts',{y:-80,opacity:0,ease:'none'},0);
+  const hero3d=document.querySelector('.p-hero--3d');
+  if(hero3d){
+    // 3D hero: pinned while the camera tells the product story. The scene itself (evanora-3d.js)
+    // reads this trigger's progress; the timeline length is 1 so caption times are in progress units.
+    const story=gsap.timeline({scrollTrigger:{id:'p3d',trigger:hero3d,start:'top top',end:'+=420%',pin:true,scrub:true}});
+    story.to('.p-hero-copy,.p-facts,.p3d-hint',{y:-60,opacity:0,ease:'none',duration:.06},0)
+      .to('.p3d-progress span',{scaleX:1,ease:'none',duration:1},0);
+    hero3d.querySelectorAll('.p3d-caption').forEach(cap=>{
+      const at=(Number(cap.dataset.frame)-1)/299;
+      story.fromTo(cap,{opacity:0,y:40},{opacity:1,y:0,ease:'power2.out',duration:.05},at-.07)
+        .to(cap,{opacity:0,y:-40,ease:'power2.in',duration:.05},at+.04);
+    });
+  }else{
+    // The hero drifts away as you scroll past it.
+    gsap.timeline({scrollTrigger:{trigger:'.p-hero',start:'top top',end:'bottom top',scrub:true}})
+      .to('.p-hero-video',{scale:1.12,ease:'none'},0)
+      .to('.p-hero-copy,.p-facts',{y:-80,opacity:0,ease:'none'},0);
+  }
 
   gsap.from('.details-title .ln>span',{
     yPercent:115,duration:1.2,ease:'expo.out',stagger:.09,

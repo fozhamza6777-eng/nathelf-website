@@ -112,6 +112,33 @@ background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
 -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
 }
 
+/* ---------- 3D hero (Evanora) ---------- */
+.p3d-poster,.p3d-canvas{position:absolute;inset:0;width:100%;height:100%}
+.p3d-poster{object-fit:cover;transition:opacity .9s ease}
+.p-hero--3d.is-ready .p3d-poster{opacity:0}
+.p3d-canvas{display:block}
+.p3d-caption{
+position:absolute;top:50%;translate:0 -50%;z-index:2;width:min(380px,30vw);
+padding:24px 26px;border-radius:22px;opacity:0;
+background:rgba(16,10,34,.42);border:1px solid rgba(255,255,255,.14);
+-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.p3d-caption--left{left:var(--gutter)}
+.p3d-caption--right{right:var(--gutter)}
+.p3d-kicker{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#cbb6ff;margin-bottom:14px}
+.p3d-caption h2{font-weight:500;font-size:clamp(1.6rem,2.4vw,2.3rem);line-height:1.05;letter-spacing:-.03em}
+.p3d-caption h2+p{margin-top:12px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.78)}
+.p3d-hint{
+position:absolute;left:50%;bottom:30px;translate:-50% 0;z-index:2;
+font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);
+}
+.p3d-hint::after{content:'';display:block;width:1px;height:26px;margin:10px auto 0;background:linear-gradient(rgba(255,255,255,.6),transparent)}
+.p3d-progress{
+position:absolute;left:var(--gutter);right:var(--gutter);bottom:14px;z-index:2;
+height:2px;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.1);
+}
+.p3d-progress span{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#b99cff,#ffd08a)}
+
 /* ---------- Details ---------- */
 .details{
 display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:6vw;
@@ -164,6 +191,9 @@ background:radial-gradient(circle at 50% 40%,#fff 0%,#e8ebf0 100%);
 }
 .g-item--pack img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(11,15,20,.18))}
 .g-item--wide{width:clamp(320px,56vw,820px);padding:5%}
+/* packshot photographed on its own near-white background */
+.g-item--photo{background:#fdfdfd;padding:4%}
+.g-item--photo img{filter:none}
 
 /* ---------- Next product ---------- */
 .next{
@@ -287,6 +317,8 @@ linear-gradient(to top,rgba(5,8,15,.92) 0%,rgba(5,8,15,.6) 45%,rgba(5,8,15,0) 75
 .p-title{font-size:clamp(2.8rem,15vw,4.8rem)}
 .p-lead{font-size:15px}
 .p-facts{display:none}
+.p3d-caption{top:auto;bottom:9vh;translate:none;left:var(--gutter);right:var(--gutter);width:auto;padding:20px 22px}
+.p3d-hint{display:none}
 .spec-row{grid-template-columns:1fr;gap:12px;padding:26px 0}
 .g-item{height:clamp(320px,58vh,520px)}
 .next{height:62vh}
